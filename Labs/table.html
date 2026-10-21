@@ -14,33 +14,34 @@
 
     <details open>
         <summary>График</summary>
-        <form>
+        <form id="chart_form">
             <p><b>Значение по оси OX</b></p>
             <p>
-                <label><input type="radio" name="axis_x" value="brand" checked> Марка</label><br>
-                <label><input type="radio" name="axis_x" value="body"> Тип кузова</label><br>
-                <label><input type="radio" name="axis_x" value="year"> Год выпуска</label><br>
-                <label><input type="radio" name="axis_x" value="volume"> Объём двигателя</label>
+                <label><input id="axis_x_brand" type="radio" name="axis_x" value="brand" checked> Марка</label><br>
+                <label><input id="axis_x_body" type="radio" name="axis_x" value="body"> Тип кузова</label><br>
+                <label><input id="axis_x_year" type="radio" name="axis_x" value="year"> Год выпуска</label><br>
+                <label><input id="axis_x_volume" type="radio" name="axis_x" value="volume"> Объём двигателя</label>
             </p>
             <p><b>Значение по оси OY – мощность, л. с.</b></p>
             <p>
-                <label><input type="checkbox" name="power_min"> Минимальная мощность</label><br>
-                <label><input type="checkbox" name="power_max" checked> Максимальная мощность</label>
+                <label><input id="power_min" type="checkbox" name="power_min"> Минимальная мощность</label><br>
+                <label><input id="power_avg" type="checkbox" name="power_avg"> Средняя мощность</label><br>
+                <label><input id="power_max" type="checkbox" name="power_max" checked> Максимальная мощность</label>
             </p>
-            <p><input type="button" value="Построить"></p>
+            <p><input id="build_chart" type="button" value="Построить"></p>
         </form>
         <p>Здесь будет график.</p>
     </details>
 
     <details open>
         <summary>Фильтр</summary>
-        <form>
-            <p><label>Марка: <input type="text" name="brand" size="20"></label></p>
-            <p><label>Модель: <input type="text" name="model" size="20"></label></p>
+        <form id="filter_form">
+            <p><label>Марка: <input id="filter_brand" type="text" name="brand" size="20"></label></p>
+            <p><label>Модель: <input id="filter_model" type="text" name="model" size="20"></label></p>
             <p>
                 <label>
                     Тип кузова:
-                    <select name="body">
+                    <select id="filter_body" name="body">
                         <option value="all">Все</option>
                         <option value="sedan">Седан</option>
                         <option value="coupe">Купе</option>
@@ -53,28 +54,28 @@
                 </label>
             </p>
             <p>Год выпуска:
-                <label>от <input type="number" name="year_from" min="1886" max="2100"></label>
-                <label>до <input type="number" name="year_to" min="1886" max="2100"></label>
+                <label>от <input id="filter_year_from" type="number" name="year_from" min="1886" max="2100"></label>
+                <label>до <input id="filter_year_to" type="number" name="year_to" min="1886" max="2100"></label>
             </p>
             <p>Мощность, л. с.:
-                <label>от <input type="number" name="power_from" min="0" max="3000"></label>
-                <label>до <input type="number" name="power_to" min="0" max="3000"></label>
+                <label>от <input id="filter_power_from" type="number" name="power_from" min="0" max="3000"></label>
+                <label>до <input id="filter_power_to" type="number" name="power_to" min="0" max="3000"></label>
             </p>
             <p>Объём двигателя, л:
-                <label>от <input type="number" name="volume_from" min="0" step="0.1" max="10.0"></label>
-                <label>до <input type="number" name="volume_to" min="0" step="0.1" max="10.0"></label>
+                <label>от <input id="filter_volume_from" type="number" name="volume_from" min="0" step="0.1" max="10.0"></label>
+                <label>до <input id="filter_volume_to" type="number" name="volume_to" min="0" step="0.1" max="10.0"></label>
             </p>
-            <p><input type="button" value="Найти"></p>
+            <p><input id="apply_filter" type="button" value="Найти"></p>
         </form>
     </details>
 
     <details open>
         <summary>Сортировка</summary>
-        <form>
+        <form id="sort_form">
             <p>
                 <label>
                     Первый уровень:
-                    <select name="sort1">
+                    <select id="sort1" name="sort1">
                         <option value="none">Нет</option>
                         <option value="brand">Марка</option>
                         <option value="model">Модель</option>
@@ -84,12 +85,12 @@
                         <option value="volume">Объём, л</option>
                     </select>
                 </label>
-                <label><input type="checkbox" name="descending1"> По убыванию</label>
+                <label><input id="descending1" type="checkbox" name="descending1"> По убыванию</label>
             </p>
             <p>
                 <label>
                     Второй уровень:
-                    <select name="sort2">
+                    <select id="sort2" name="sort2">
                         <option value="none">Нет</option>
                         <option value="brand">Марка</option>
                         <option value="model">Модель</option>
@@ -99,12 +100,12 @@
                         <option value="volume">Объём, л</option>
                     </select>
                 </label>
-                <label><input type="checkbox" name="descending2"> По убыванию</label>
+                <label><input id="descending2" type="checkbox" name="descending2"> По убыванию</label>
             </p>
             <p>
                 <label>
                     Третий уровень:
-                    <select name="sort3">
+                    <select id="sort3" name="sort3">
                         <option value="none">Нет</option>
                         <option value="brand">Марка</option>
                         <option value="model">Модель</option>
@@ -114,9 +115,9 @@
                         <option value="volume">Объём, л</option>
                     </select>
                 </label>
-                <label><input type="checkbox" name="descending3"> По убыванию</label>
+                <label><input id="descending3" type="checkbox" name="descending3"> По убыванию</label>
             </p>
-            <p><input type="button" value="Сортировать"></p>
+            <p><input id="apply_sort" type="button" value="Сортировать"></p>
         </form>
     </details>
     <br>
@@ -138,7 +139,7 @@
                 <td>Седан</td>
                 <td>2000</td>
                 <td>200</td>
-                <td>2,5</td>
+                <td>2.5</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -146,7 +147,7 @@
                 <td>Седан</td>
                 <td>2000</td>
                 <td>280</td>
-                <td>2,5</td>
+                <td>2.5</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -154,7 +155,7 @@
                 <td>Купе</td>
                 <td>1993</td>
                 <td>280</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -162,7 +163,7 @@
                 <td>Купе</td>
                 <td>1993</td>
                 <td>225</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -170,7 +171,7 @@
                 <td>Седан</td>
                 <td>1996</td>
                 <td>200</td>
-                <td>2,5</td>
+                <td>2.5</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -178,7 +179,7 @@
                 <td>Седан</td>
                 <td>1996</td>
                 <td>140</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -186,7 +187,7 @@
                 <td>Седан</td>
                 <td>1996</td>
                 <td>220</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -194,7 +195,7 @@
                 <td>Седан</td>
                 <td>1996</td>
                 <td>200</td>
-                <td>2,5</td>
+                <td>2.5</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -202,7 +203,7 @@
                 <td>Седан</td>
                 <td>1996</td>
                 <td>220</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -210,7 +211,7 @@
                 <td>Седан</td>
                 <td>1998</td>
                 <td>210</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -218,7 +219,7 @@
                 <td>Седан</td>
                 <td>1998</td>
                 <td>160</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -226,7 +227,7 @@
                 <td>Купе</td>
                 <td>1999</td>
                 <td>145</td>
-                <td>1,8</td>
+                <td>1.8</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -234,7 +235,7 @@
                 <td>Купе</td>
                 <td>1999</td>
                 <td>190</td>
-                <td>1,8</td>
+                <td>1.8</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -242,7 +243,7 @@
                 <td>Купе</td>
                 <td>1989</td>
                 <td>225</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -250,7 +251,7 @@
                 <td>Купе</td>
                 <td>1989</td>
                 <td>165</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -258,7 +259,7 @@
                 <td>Седан</td>
                 <td>1997</td>
                 <td>280</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -266,7 +267,7 @@
                 <td>Седан</td>
                 <td>1997</td>
                 <td>230</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -274,7 +275,7 @@
                 <td>Купе</td>
                 <td>1991</td>
                 <td>280</td>
-                <td>2,5</td>
+                <td>2.5</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -282,7 +283,7 @@
                 <td>Внедорожник</td>
                 <td>2007</td>
                 <td>249</td>
-                <td>4,0</td>
+                <td>4.0</td>
             </tr>
             <tr>
                 <td>Toyota</td>
@@ -290,7 +291,7 @@
                 <td>Внедорожник</td>
                 <td>2015</td>
                 <td>177</td>
-                <td>2,8</td>
+                <td>2.8</td>
             </tr>
             <tr>
                 <td>Nissan</td>
@@ -298,7 +299,7 @@
                 <td>Купе</td>
                 <td>1989</td>
                 <td>280</td>
-                <td>2,6</td>
+                <td>2.6</td>
             </tr>
             <tr>
                 <td>Nissan</td>
@@ -306,7 +307,7 @@
                 <td>Купе</td>
                 <td>1995</td>
                 <td>280</td>
-                <td>2,6</td>
+                <td>2.6</td>
             </tr>
             <tr>
                 <td>Nissan</td>
@@ -314,7 +315,7 @@
                 <td>Купе</td>
                 <td>1999</td>
                 <td>280</td>
-                <td>2,6</td>
+                <td>2.6</td>
             </tr>
             <tr>
                 <td>Nissan</td>
@@ -322,7 +323,7 @@
                 <td>Купе</td>
                 <td>1988</td>
                 <td>175</td>
-                <td>1,8</td>
+                <td>1.8</td>
             </tr>
             <tr>
                 <td>Nissan</td>
@@ -330,7 +331,7 @@
                 <td>Купе</td>
                 <td>1994</td>
                 <td>220</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Nissan</td>
@@ -338,7 +339,7 @@
                 <td>Купе</td>
                 <td>1999</td>
                 <td>250</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Nissan</td>
@@ -346,7 +347,7 @@
                 <td>Купе</td>
                 <td>1996</td>
                 <td>205</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Honda</td>
@@ -354,7 +355,7 @@
                 <td>Хетчбэк</td>
                 <td>1997</td>
                 <td>185</td>
-                <td>1,6</td>
+                <td>1.6</td>
             </tr>
             <tr>
                 <td>Honda</td>
@@ -362,7 +363,7 @@
                 <td>Купе</td>
                 <td>1995</td>
                 <td>200</td>
-                <td>1,8</td>
+                <td>1.8</td>
             </tr>
             <tr>
                 <td>Honda</td>
@@ -370,7 +371,7 @@
                 <td>Купе</td>
                 <td>1990</td>
                 <td>280</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Honda</td>
@@ -378,7 +379,7 @@
                 <td>Родстер</td>
                 <td>1999</td>
                 <td>250</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Mazda</td>
@@ -386,7 +387,7 @@
                 <td>Купе</td>
                 <td>1991</td>
                 <td>255</td>
-                <td>1,3</td>
+                <td>1.3</td>
             </tr>
             <tr>
                 <td>Mazda</td>
@@ -394,7 +395,7 @@
                 <td>Купе</td>
                 <td>1999</td>
                 <td>280</td>
-                <td>1,3</td>
+                <td>1.3</td>
             </tr>
             <tr>
                 <td>Eunos</td>
@@ -402,7 +403,7 @@
                 <td>Родстер</td>
                 <td>1989</td>
                 <td>120</td>
-                <td>1,6</td>
+                <td>1.6</td>
             </tr>
             <tr>
                 <td>Mazda</td>
@@ -410,7 +411,7 @@
                 <td>Родстер</td>
                 <td>1998</td>
                 <td>145</td>
-                <td>1,8</td>
+                <td>1.8</td>
             </tr>
             <tr>
                 <td>Subaru</td>
@@ -418,7 +419,7 @@
                 <td>Седан</td>
                 <td>1994</td>
                 <td>250</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Subaru</td>
@@ -426,7 +427,7 @@
                 <td>Кроссовер</td>
                 <td>2014</td>
                 <td>240</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Lexus</td>
@@ -434,7 +435,7 @@
                 <td>Седан</td>
                 <td>2006</td>
                 <td>208</td>
-                <td>2,5</td>
+                <td>2.5</td>
             </tr>
             <tr>
                 <td>Lexus</td>
@@ -442,7 +443,7 @@
                 <td>Седан</td>
                 <td>2006</td>
                 <td>249</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Lexus</td>
@@ -450,7 +451,7 @@
                 <td>Кроссовер</td>
                 <td>2015</td>
                 <td>238</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Lexus</td>
@@ -458,7 +459,7 @@
                 <td>Кроссовер</td>
                 <td>2016</td>
                 <td>238</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Mercedes-Benz</td>
@@ -466,7 +467,7 @@
                 <td>Кроссовер</td>
                 <td>2015</td>
                 <td>258</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Mercedes-Benz</td>
@@ -474,7 +475,7 @@
                 <td>Кроссовер</td>
                 <td>2015</td>
                 <td>333</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>BMW</td>
@@ -482,7 +483,7 @@
                 <td>Купе</td>
                 <td>2006</td>
                 <td>306</td>
-                <td>3,0</td>
+                <td>3.0</td>
             </tr>
             <tr>
                 <td>Volkswagen</td>
@@ -490,7 +491,7 @@
                 <td>Хетчбэк</td>
                 <td>2013</td>
                 <td>220</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Audi</td>
@@ -498,7 +499,7 @@
                 <td>Хетчбэк</td>
                 <td>2013</td>
                 <td>300</td>
-                <td>2,0</td>
+                <td>2.0</td>
             </tr>
             <tr>
                 <td>Ford</td>
@@ -506,7 +507,7 @@
                 <td>Купе</td>
                 <td>2015</td>
                 <td>421</td>
-                <td>5,0</td>
+                <td>5.0</td>
             </tr>
             <tr>
                 <td>Chevrolet</td>
@@ -514,7 +515,7 @@
                 <td>Купе</td>
                 <td>2019</td>
                 <td>453</td>
-                <td>6,2</td>
+                <td>6.2</td>
             </tr>
             <tr>
                 <td>Ford</td>
@@ -522,7 +523,7 @@
                 <td>Пикап</td>
                 <td>2016</td>
                 <td>200</td>
-                <td>3,2</td>
+                <td>3.2</td>
             </tr>
             <tr>
                 <td>Ford</td>
@@ -530,7 +531,7 @@
                 <td>Пикап</td>
                 <td>2018</td>
                 <td>400</td>
-                <td>5,0</td>
+                <td>5.0</td>
             </tr>
         </tbody>
     </table>
