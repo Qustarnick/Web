@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог автомобилей</title>
+</head>
+<body>
+    <p>
+        <a href="index.html">Автомобили</a><br>
+        <a href="table.html"><font size="4"><b>Каталог автомобилей</b></font></a>
+    </p>
+    <hr>
+    <h1>Каталог автомобилей</h1>
+
+    <details open>
+        <summary>График</summary>
+        <form>
+            <p><b>Значение по оси OX</b></p>
+            <p>
+                <label><input type="radio" name="axis_x" value="brand" checked> Марка</label><br>
+                <label><input type="radio" name="axis_x" value="body"> Тип кузова</label><br>
+                <label><input type="radio" name="axis_x" value="year"> Год выпуска</label><br>
+                <label><input type="radio" name="axis_x" value="volume"> Объём двигателя</label>
+            </p>
+            <p><b>Значение по оси OY – мощность, л. с.</b></p>
+            <p>
+                <label><input type="checkbox" name="power_min"> Минимальная мощность</label><br>
+                <label><input type="checkbox" name="power_max" checked> Максимальная мощность</label>
+            </p>
+            <p><input type="button" value="Построить"></p>
+        </form>
+        <p>Здесь будет график.</p>
+    </details>
+
+    <details open>
+        <summary>Фильтр</summary>
+        <form>
+            <p><label>Марка: <input type="text" name="brand" size="20"></label></p>
+            <p><label>Модель: <input type="text" name="model" size="20"></label></p>
+            <p>
+                <label>
+                    Тип кузова:
+                    <select name="body">
+                        <option value="all">Все</option>
+                        <option value="sedan">Седан</option>
+                        <option value="coupe">Купе</option>
+                        <option value="hatchback">Хетчбэк</option>
+                        <option value="roadster">Родстер</option>
+                        <option value="crossover">Кроссовер</option>
+                        <option value="suv">Внедорожник</option>
+                        <option value="pickup">Пикап</option>
+                    </select>
+                </label>
+            </p>
+            <p>Год выпуска:
+                <label>от <input type="number" name="year_from" min="1886" max="2100"></label>
+                <label>до <input type="number" name="year_to" min="1886" max="2100"></label>
+            </p>
+            <p>Мощность, л. с.:
+                <label>от <input type="number" name="power_from" min="0" max="3000"></label>
+                <label>до <input type="number" name="power_to" min="0" max="3000"></label>
+            </p>
+            <p>Объём двигателя, л:
+                <label>от <input type="number" name="volume_from" min="0" step="0.1" max="10.0"></label>
+                <label>до <input type="number" name="volume_to" min="0" step="0.1" max="10.0"></label>
+            </p>
+            <p><input type="button" value="Найти"></p>
+        </form>
+    </details>
+
+    <details open>
+        <summary>Сортировка</summary>
+        <form>
+            <p>
+                <label>
+                    Первый уровень:
+                    <select name="sort1">
+                        <option value="none">Нет</option>
+                        <option value="brand">Марка</option>
+                        <option value="model">Модель</option>
+                        <option value="body">Тип кузова</option>
+                        <option value="year">Год выпуска</option>
+                        <option value="power">Мощность, л. с.</option>
+                        <option value="volume">Объём, л</option>
+                    </select>
+                </label>
+                <label><input type="checkbox" name="descending1"> По убыванию</label>
+            </p>
+            <p>
+                <label>
+                    Второй уровень:
+                    <select name="sort2">
+                        <option value="none">Нет</option>
+                        <option value="brand">Марка</option>
+                        <option value="model">Модель</option>
+                        <option value="body">Тип кузова</option>
+                        <option value="year">Год выпуска</option>
+                        <option value="power">Мощность, л. с.</option>
+                        <option value="volume">Объём, л</option>
+                    </select>
+                </label>
+                <label><input type="checkbox" name="descending2"> По убыванию</label>
+            </p>
+            <p>
+                <label>
+                    Третий уровень:
+                    <select name="sort3">
+                        <option value="none">Нет</option>
+                        <option value="brand">Марка</option>
+                        <option value="model">Модель</option>
+                        <option value="body">Тип кузова</option>
+                        <option value="year">Год выпуска</option>
+                        <option value="power">Мощность, л. с.</option>
+                        <option value="volume">Объём, л</option>
+                    </select>
+                </label>
+                <label><input type="checkbox" name="descending3"> По убыванию</label>
+            </p>
+            <p><input type="button" value="Сортировать"></p>
+        </form>
+    </details>
+    <br>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th scope="col">Марка</th>
+                <th scope="col">Модель</th>
+                <th scope="col">Тип кузова</th>
+                <th scope="col">Год выпуска</th>
+                <th scope="col">Мощность, л. с.</th>
+                <th scope="col">Объём, л</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Toyota</td>
+                <td>Chaser JZX100 Tourer S</td>
+                <td>Седан</td>
+                <td>2000</td>
+                <td>200</td>
+                <td>2,5</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Chaser JZX100 Tourer V</td>
+                <td>Седан</td>
+                <td>2000</td>
+                <td>280</td>
+                <td>2,5</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Supra JZA80 RZ</td>
+                <td>Купе</td>
+                <td>1993</td>
+                <td>280</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Supra JZA80 SZ</td>
+                <td>Купе</td>
+                <td>1993</td>
+                <td>225</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Mark II JZX100 Grande G 2.5</td>
+                <td>Седан</td>
+                <td>1996</td>
+                <td>200</td>
+                <td>2,5</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Mark II GX100 Grande 2.0</td>
+                <td>Седан</td>
+                <td>1996</td>
+                <td>140</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Mark II JZX101 Grande G 3.0</td>
+                <td>Седан</td>
+                <td>1996</td>
+                <td>220</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Cresta JZX100 Exceed 2.5</td>
+                <td>Седан</td>
+                <td>1996</td>
+                <td>200</td>
+                <td>2,5</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Cresta JZX101 Exceed G 3.0</td>
+                <td>Седан</td>
+                <td>1996</td>
+                <td>220</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Altezza SXE10 RS200 6MT</td>
+                <td>Седан</td>
+                <td>1998</td>
+                <td>210</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Altezza GXE10 AS200 4AT</td>
+                <td>Седан</td>
+                <td>1998</td>
+                <td>160</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Celica ZZT230 SS-I</td>
+                <td>Купе</td>
+                <td>1999</td>
+                <td>145</td>
+                <td>1,8</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Celica ZZT231 SS-II</td>
+                <td>Купе</td>
+                <td>1999</td>
+                <td>190</td>
+                <td>1,8</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>MR2 SW20 GT</td>
+                <td>Купе</td>
+                <td>1989</td>
+                <td>225</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>MR2 SW20 G 5MT</td>
+                <td>Купе</td>
+                <td>1989</td>
+                <td>165</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Aristo JZS161 V300</td>
+                <td>Седан</td>
+                <td>1997</td>
+                <td>280</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Aristo JZS160 S300</td>
+                <td>Седан</td>
+                <td>1997</td>
+                <td>230</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Soarer JZZ30 2.5 GT Twin Turbo L</td>
+                <td>Купе</td>
+                <td>1991</td>
+                <td>280</td>
+                <td>2,5</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Land Cruiser Prado 120 4.0 VVT-i</td>
+                <td>Внедорожник</td>
+                <td>2007</td>
+                <td>249</td>
+                <td>4,0</td>
+            </tr>
+            <tr>
+                <td>Toyota</td>
+                <td>Land Cruiser Prado 150 2.8 D-4D</td>
+                <td>Внедорожник</td>
+                <td>2015</td>
+                <td>177</td>
+                <td>2,8</td>
+            </tr>
+            <tr>
+                <td>Nissan</td>
+                <td>Skyline GT-R BNR32</td>
+                <td>Купе</td>
+                <td>1989</td>
+                <td>280</td>
+                <td>2,6</td>
+            </tr>
+            <tr>
+                <td>Nissan</td>
+                <td>Skyline GT-R BCNR33</td>
+                <td>Купе</td>
+                <td>1995</td>
+                <td>280</td>
+                <td>2,6</td>
+            </tr>
+            <tr>
+                <td>Nissan</td>
+                <td>Skyline GT-R BNR34</td>
+                <td>Купе</td>
+                <td>1999</td>
+                <td>280</td>
+                <td>2,6</td>
+            </tr>
+            <tr>
+                <td>Nissan</td>
+                <td>Silvia S13 K&#x27;s 1.8 Turbo</td>
+                <td>Купе</td>
+                <td>1988</td>
+                <td>175</td>
+                <td>1,8</td>
+            </tr>
+            <tr>
+                <td>Nissan</td>
+                <td>Silvia S14 K&#x27;s Type S</td>
+                <td>Купе</td>
+                <td>1994</td>
+                <td>220</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Nissan</td>
+                <td>Silvia S15 Spec-R 6MT</td>
+                <td>Купе</td>
+                <td>1999</td>
+                <td>250</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Nissan</td>
+                <td>180SX RPS13 Type X</td>
+                <td>Купе</td>
+                <td>1996</td>
+                <td>205</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Honda</td>
+                <td>Civic Type R EK9</td>
+                <td>Хетчбэк</td>
+                <td>1997</td>
+                <td>185</td>
+                <td>1,6</td>
+            </tr>
+            <tr>
+                <td>Honda</td>
+                <td>Integra Type R DC2</td>
+                <td>Купе</td>
+                <td>1995</td>
+                <td>200</td>
+                <td>1,8</td>
+            </tr>
+            <tr>
+                <td>Honda</td>
+                <td>NSX NA1 5MT</td>
+                <td>Купе</td>
+                <td>1990</td>
+                <td>280</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Honda</td>
+                <td>S2000 AP1</td>
+                <td>Родстер</td>
+                <td>1999</td>
+                <td>250</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Mazda</td>
+                <td>RX-7 FD3S Type R</td>
+                <td>Купе</td>
+                <td>1991</td>
+                <td>255</td>
+                <td>1,3</td>
+            </tr>
+            <tr>
+                <td>Mazda</td>
+                <td>RX-7 FD3S Type RS</td>
+                <td>Купе</td>
+                <td>1999</td>
+                <td>280</td>
+                <td>1,3</td>
+            </tr>
+            <tr>
+                <td>Eunos</td>
+                <td>Roadster NA6CE 5MT</td>
+                <td>Родстер</td>
+                <td>1989</td>
+                <td>120</td>
+                <td>1,6</td>
+            </tr>
+            <tr>
+                <td>Mazda</td>
+                <td>Roadster NB8C RS</td>
+                <td>Родстер</td>
+                <td>1998</td>
+                <td>145</td>
+                <td>1,8</td>
+            </tr>
+            <tr>
+                <td>Subaru</td>
+                <td>Impreza WRX STI GC8</td>
+                <td>Седан</td>
+                <td>1994</td>
+                <td>250</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Subaru</td>
+                <td>Forester SJ 2.0 XT</td>
+                <td>Кроссовер</td>
+                <td>2014</td>
+                <td>240</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Lexus</td>
+                <td>IS 250 XE20</td>
+                <td>Седан</td>
+                <td>2006</td>
+                <td>208</td>
+                <td>2,5</td>
+            </tr>
+            <tr>
+                <td>Lexus</td>
+                <td>GS 300 S190 LE</td>
+                <td>Седан</td>
+                <td>2006</td>
+                <td>249</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Lexus</td>
+                <td>NX 200t AZ10</td>
+                <td>Кроссовер</td>
+                <td>2015</td>
+                <td>238</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Lexus</td>
+                <td>RX 200t AL20</td>
+                <td>Кроссовер</td>
+                <td>2016</td>
+                <td>238</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Mercedes-Benz</td>
+                <td>GLE 350 d W166 4MATIC</td>
+                <td>Кроссовер</td>
+                <td>2015</td>
+                <td>258</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Mercedes-Benz</td>
+                <td>GLE 400 W166 4MATIC</td>
+                <td>Кроссовер</td>
+                <td>2015</td>
+                <td>333</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>BMW</td>
+                <td>335i E92</td>
+                <td>Купе</td>
+                <td>2006</td>
+                <td>306</td>
+                <td>3,0</td>
+            </tr>
+            <tr>
+                <td>Volkswagen</td>
+                <td>Golf VII GTI</td>
+                <td>Хетчбэк</td>
+                <td>2013</td>
+                <td>220</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Audi</td>
+                <td>S3 Sportback 8V</td>
+                <td>Хетчбэк</td>
+                <td>2013</td>
+                <td>300</td>
+                <td>2,0</td>
+            </tr>
+            <tr>
+                <td>Ford</td>
+                <td>Mustang VI GT Fastback</td>
+                <td>Купе</td>
+                <td>2015</td>
+                <td>421</td>
+                <td>5,0</td>
+            </tr>
+            <tr>
+                <td>Chevrolet</td>
+                <td>Camaro VI 6.2 V8</td>
+                <td>Купе</td>
+                <td>2019</td>
+                <td>453</td>
+                <td>6,2</td>
+            </tr>
+            <tr>
+                <td>Ford</td>
+                <td>Ranger T6 3.2 TDCi</td>
+                <td>Пикап</td>
+                <td>2016</td>
+                <td>200</td>
+                <td>3,2</td>
+            </tr>
+            <tr>
+                <td>Ford</td>
+                <td>F-150 XIII 5.0 V8</td>
+                <td>Пикап</td>
+                <td>2018</td>
+                <td>400</td>
+                <td>5,0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <footer>
+        <p>Разработчик: Шевченко К. А. Группа: Б9124-09.03.04.</p>
+    </footer>
+</body>
+</html>

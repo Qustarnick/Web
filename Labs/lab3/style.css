@@ -1,0 +1,180 @@
+body {
+    background-color: #f8f9fa;
+}
+
+header {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #ffffff;
+    border: 1px solid #e0e4ec; /* Тонкая серая рамка*/
+    border-radius: 12px; /* Скругленные углы */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.03); /* Легкая тень */
+}
+
+/* Контейнер для выравнивания элементов*/ .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+}
+
+/* Заголовок */
+
+.navbar-title {
+    font-weight: bold;
+    color: #4a6b82;
+    letter-spacing: 0.05em;
+}
+
+/* Навигация */ nav {
+    display: flex;
+    gap: 14px;
+}
+
+/* Базовый стиль для всех навигационных ссылок*/
+
+.nav-btn {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 6px; /* Скругление кнопок */
+    color: #0288d1; /* Цвет для ссылок */
+}
+
+/* Стиль для активного пункта меню */
+
+.nav-btn.active {
+    background-color: #0288d1; /* Яркий синий фон */
+    color: #ffffff; /* Белый текст */
+    box-shadow: 0px 2px 4px rgba(2, 136, 209, 0.2); /* Свечение под кнопкой */
+}
+
+/* Эффект наведения на неактивную ссылку */
+
+.nav-btn:hover {
+    background-color: rgba(2, 136, 209, 0.06);
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        gap: 14px;
+    }
+}
+
+/* Сетка галереи */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 200px;
+    gap: 10px;
+    width: 80%;
+    max-width: 1200px;
+    margin: 14px auto 0;
+}
+
+/* Элемент галереи */
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Легкая тень */
+}
+
+/* Стилизация картинок внутри блоков */
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка заполняет блок без искажения пропорций */
+}
+
+.gallery-item.tall {
+    grid-row: span 2;
+}
+
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Общая сетка для карточек */
+.cards-grid {
+    display: grid;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+/* Карточка */
+.card {
+    display: flex;
+    background-color: #ffffff;
+    border: 1px solid #e0e4ec;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+.card-title {
+    margin: 0 0 14px;
+    color: darkslateblue;
+}
+
+.card-text {
+    margin: 0 0 10px;
+    color: darkblue;
+    line-height: 1.5;
+}
+
+.details-btn {
+    margin-top: auto;
+    align-self: flex-end;
+    color: #0288d1;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+    .details-btn:hover {
+        text-decoration: underline;
+    }
+
+.card-image {
+    width: 25%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.card-reverse {
+    flex-direction: row-reverse;
+}
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        flex-direction: row;
+    }
+
+    .card-image {
+        flex: 0 0 25%;
+    }
+
+    .details-btn {
+        align-self: flex-end;
+    }
+}
